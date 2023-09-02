@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:planet/screens/lognScreen.dart';
+import 'package:planet/screens/planets.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -7,7 +8,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: LoginScreen(),
+      body: Planets(),
     );
   }
 }
