@@ -41,3 +41,8 @@ The `Planets` widget is the main component of the application. It is a `Stateful
 - `initState()`: Initializes the app state by setting the `currentPlanetIndex` and fetching data when the widget is created.
 
 - `build(BuildContext context)`: Defines the app's UI structure, including buttons for navigation, the planet image, and the loading spinner.
+
+Usage
+
+This Flutter app appears to be designed to display information about different planets, including their names, images, and other details and allows the user to navigate through the planets with next and previous buttons. we use a for loop and if else to iterate through the planets list and display the current planet's image based on the currentPlanetIndex. The user can navigate through the planets using the navigation buttons.![Screenshot2023-09-03 ](https://github.com/BEAST-PRINCE/CSOC_Hackathon/assets/138673188/e073eba3-1a03-4176-a5ea-9445196abe91)
+![Screenshot 2023-09-03 ](https://github.com/BEAST-PRINCE/CSOC_Hackathon/assets/138673188/b12b54bf-34ca-47c0-8a19-cc6212ca1492)
