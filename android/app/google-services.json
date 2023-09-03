@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "608809612597",
+    "project_id": "planets-901fd",
+    "storage_bucket": "planets-901fd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:608809612597:android:b155644eee0f1bcf6c487c",
+        "android_client_info": {
+          "package_name": "com.example.planet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "608809612597-us6p713bcjisn6roaemv5fdepgmh7li3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2oLDMd7tjCk4L4vGypqAHtEPcjRiZe9E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "608809612597-om8p7jlgndob03ggojovvcssk0ep6d0t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
