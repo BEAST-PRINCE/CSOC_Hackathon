@@ -112,6 +112,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:planet/screens/description.dart';
 import 'package:planet/screens/neptune.dart';
 
 import '../services/networking.dart';
@@ -167,8 +168,8 @@ class _PlanetsState extends State<Planets> {
   }
 
   void addPlanet() {
-    List<Map<String, dynamic>> planets = jsonDecode(planetData);
-    for (var planet in planets) {
+    for (var planet in planetData) {
+      print(planet);
       planets_list.add(Planet(name: planet["planet_name"],
           imagePath: "assets/images/${planet["planet_name"]}.png",
           mass: planet["mass"],
@@ -218,7 +219,8 @@ class _PlanetsState extends State<Planets> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return MaterialApp(
+        home: Scaffold(
       body: SingleChildScrollView(
         child:!isLoading? Container(
           width: double.infinity,
@@ -235,8 +237,14 @@ class _PlanetsState extends State<Planets> {
               SizedBox(height: 50),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  buildButton(-1), // Previous button
+                children: [Expanded(
+                  child: FloatingActionButton(
+                  child: Text("Show Details",textAlign: TextAlign.center,),
+                  onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => Description(planets_list[currentPlanetIndex])));
+                  },
+                ),
+                ), // Previous button
                   const SizedBox(
                     width: 150,
                   ),
@@ -264,6 +272,7 @@ class _PlanetsState extends State<Planets> {
           ),
         ),
       ),
+        ),
     );
   }
 }
