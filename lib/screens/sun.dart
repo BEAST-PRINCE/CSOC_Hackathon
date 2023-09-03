@@ -63,7 +63,10 @@ class _SunScreen extends State<SunScreen> {
                           textAlign: TextAlign.center,
                         ),
                         splashColor: Colors.cyan,
-                        onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => Planets()));}),
+                        onPressed: () {
+                          // Navigator.push(context, MaterialPageRoute(builder: (context) => Planets()));
+                          }
+                          ),
                   ],
                 )
               ],

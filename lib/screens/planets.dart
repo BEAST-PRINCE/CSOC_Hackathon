@@ -108,11 +108,14 @@
 
 
 
-
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:planet/screens/neptune.dart';
-import 'package:planet/services/networking.dart';
+
+import '../services/networking.dart';
+
 
 
 class Planet {
@@ -136,37 +139,43 @@ class Planet {
 }
 
 class Planets extends StatefulWidget {
-  const Planets({Key? key}) : super(key: key);
+
+  Planets({super.key});
 
   @override
   State<Planets> createState() => _PlanetsState();
 }
 
 class _PlanetsState extends State<Planets> {
-
   late int currentPlanetIndex;
   var planetData;
-  
-
-  Future getData() async {
-    var uri = Uri.parse('https://csoc-a3-api-2.onrender.com/planetdetails');
-    NetworkHelper networkHelper = NetworkHelper(uri);
-
-    var planet_data = await networkHelper.getData();
-    return planet_data;
-  }
+  bool isLoading = true;
 
   final List<Planet> planets_list = [];
 
+  Future<dynamic> getData() async {
+    var uri = Uri.parse('https://csoc-a3-api-2.onrender.com/planetdetails');
+
+    NetworkHelper networkHelper = NetworkHelper(uri);
+
+    planetData = await networkHelper.getData();
+    print(planetData);
+    setState(() {
+      isLoading = false;
+    });
+    addPlanet();
+  }
+
   void addPlanet() {
-    for (int i = 1; i <= 10; i++) {
-      planets_list.add(Planet(name: planetData[i]["planet_name"],
-          imagePath: "assets/images/${planetData[i]["planet_name"]}.png",
-          mass: planetData[i]["mass"],
-          moons: planetData[i]["confirmed_moons"],
-          rotation_period: planetData[i]["rotation_period"],
-          atmosphere: planetData[i]["atmosphere"],
-          description: planetData[i]["description"]));
+    List<Map<String, dynamic>> planets = jsonDecode(planetData);
+    for (var planet in planets) {
+      planets_list.add(Planet(name: planet["planet_name"],
+          imagePath: "assets/images/${planet["planet_name"]}.png",
+          mass: planet["mass"],
+          moons: planet["confirmed_moons"],
+          rotation_period: planet["rotation_period"],
+          atmosphere: planet["atmosphere"],
+          description: planet["description"]));
     }
   }
 
@@ -184,33 +193,34 @@ class _PlanetsState extends State<Planets> {
   }
 
   Widget buildButton(int nav) {
-    return InkWell(
-      child: Image.asset(planets_list[currentPlanetIndex].imagePath),
+    return Container(
+      width: 150,
+      height: 150,
+      child:InkWell(
+      child: Ink.image(image: AssetImage(planets_list[currentPlanetIndex].imagePath)),
       onTap: () {
         setState(() {
           buildPlanet(nav);
         });
       },
+    ),
     );
   }
 
-  Future<void> initializePlanets() async{
-    planetData = await getData();
-    addPlanet();
-  }
 
   @override
   void initState() {
     super.initState();
     currentPlanetIndex = 1;
-    initializePlanets();
+    getData();
+
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: Container(
+        child:!isLoading? Container(
           width: double.infinity,
           height: double.infinity,
           decoration: BoxDecoration(
@@ -246,6 +256,11 @@ class _PlanetsState extends State<Planets> {
                 ],
               )
             ],
+          ),
+        ):Center(
+          child: SpinKitWave(
+            color: Colors.white,
+            size: 100.0,
           ),
         ),
       ),
