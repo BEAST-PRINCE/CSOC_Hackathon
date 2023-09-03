@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:planet/screens/homepage.dart';
-// import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/services.dart';
 import 'package:planet/screens/splash_screen.dart';
 
 Future main() async{
-  // WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   // to show the opening loading screen till all the initializations take place

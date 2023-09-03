@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 
 class Description extends StatefulWidget {
   var description;
-  Description(this.description,{super.key});
+  Description(this.description);
 
   @override
-  State<Description> createState() => _DescriptionState();
+  DescriptionState createState() => DescriptionState();
 }
 
-class _DescriptionState extends State<Description> {
+class DescriptionState extends State<Description> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Expanded(child:Column(
-        children: [Text(description.name),]
+        children: [Text(""),]
         ),
         ),
       );

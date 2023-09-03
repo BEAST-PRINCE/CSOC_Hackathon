@@ -241,7 +241,7 @@ class _PlanetsState extends State<Planets> {
                   child: FloatingActionButton(
                   child: Text("Show Details",textAlign: TextAlign.center,),
                   onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => Description(planets_list[currentPlanetIndex])));
+                    // Navigator.push(context, MaterialPageRoute(builder: (context) => Description(planets_list[currentPlanetIndex])));
                   },
                 ),
                 ), // Previous button
