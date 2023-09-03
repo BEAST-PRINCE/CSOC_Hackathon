@@ -10,12 +10,12 @@ Future main() async{
 
   // to show the opening loading screen till all the initializations take place
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-      options :const FirebaseOptions(
-      apiKey: "apiKey",
-      appId: "appId",
-      messagingSenderId: "messagingSenderId",
-      projectId: "projectId"));
+  await Firebase.initializeApp();
+      // options :const FirebaseOptions(
+      // apiKey: "apiKey",
+      // appId: "appId",
+      // messagingSenderId: "messagingSenderId",
+      // projectId: "projectId"));
   // Duration for the opening loading screen
   // Future.delayed(const Duration(seconds: 5)).then((value) => FlutterNativeSplash.remove());
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:planet/authentication/signin.dart';
-import 'package:planet/screens/planets.dart';
+import 'package:planet/screens/sun.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -11,7 +11,7 @@ class LoginScreen extends StatelessWidget {
     var signInStatus = await signInWithGoogle();
     if (signInStatus == FirebaseAuthException) {
       print("Logged in");
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Planets()));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const SunScreen()));
     } else {
       print(signInStatus);
       print("Else");
@@ -24,7 +24,7 @@ class LoginScreen extends StatelessWidget {
           textColor: Colors.white,
           fontSize: 20.0
       );
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Planets()));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const SunScreen()));
 
     }
   }
