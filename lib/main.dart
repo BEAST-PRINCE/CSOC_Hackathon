@@ -9,8 +9,8 @@ Future main() async{
   // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   // to show the opening loading screen till all the initializations take place
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  // WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp();
       // options :const FirebaseOptions(
       // apiKey: "apiKey",
       // appId: "appId",
@@ -23,9 +23,12 @@ Future main() async{
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
       home: SplashScreen(),
     );

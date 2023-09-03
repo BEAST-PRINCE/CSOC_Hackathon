@@ -5,13 +5,15 @@ import 'package:planet/authentication/signin.dart';
 import 'package:planet/screens/sun.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+  const LoginScreen({required this.context, super.key});
+
+  final BuildContext context;
 
   Future signin() async {
     var signInStatus = await signInWithGoogle();
     if (signInStatus == FirebaseAuthException) {
       print("Logged in");
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const SunScreen()));
+      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const SunScreen()), (route) => false);
     } else {
       print(signInStatus);
       print("Else");
@@ -19,12 +21,12 @@ class LoginScreen extends StatelessWidget {
           msg: "Sign-in Failed. Continue as a guest.",
           toastLength: Toast.LENGTH_LONG,
           gravity: ToastGravity.CENTER,
-          timeInSecForIosWeb: 1,
+          timeInSecForIosWeb: 3,
           backgroundColor: Colors.deepPurpleAccent,
           textColor: Colors.white,
           fontSize: 20.0
       );
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const SunScreen()));
+      Navigator.pushReplacement(context as BuildContext, MaterialPageRoute(builder: (context) => const SunScreen()));
 
     }
   }
