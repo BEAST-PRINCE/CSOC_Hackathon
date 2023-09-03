@@ -4,11 +4,11 @@ This Flutter application allows users to explore information about different pla
 
 Features
 
-- ![](image1 (2).jpeg): The app fetches planet data from the API and creates a list of Planet objects, each representing a planet's name, image, description, mass, moons, rotation period, and atmosphere.
+- *Planet Data*: The app fetches planet data from the API and creates a list of Planet objects, each representing a planet's name, image, description, mass, moons, rotation period, and atmosphere.
 
 - *Navigation*: Users can navigate through the planets using next and previous buttons. The app displays the planet's image and some basic information about it.
 
-- ![](image1 (2).jpeg): There is a "Show Details" button that is currently commented out but can be used to navigate to a detailed screen with more information about the selected planet.
+- *Details Screen*: There is a "Show Details" button that is currently commented out but can be used to navigate to a detailed screen with more information about the selected planet.
 
 - *Loading Screen*: While the data is being fetched from the API, a loading spinner is displayed to indicate that the app is loading data.
 
@@ -41,3 +41,8 @@ The `Planets` widget is the main component of the application. It is a `Stateful
 - `initState()`: Initializes the app state by setting the `currentPlanetIndex` and fetching data when the widget is created.
 
 - `build(BuildContext context)`: Defines the app's UI structure, including buttons for navigation, the planet image, and the loading spinner.
+
+Output Screenshots
+![image1 (1)](https://github.com/BEAST-PRINCE/CSOC_Hackathon/assets/98230743/b862c77e-8391-4e00-b51e-0f9de100f8ec)
+
+![image1 (2)](https://github.com/BEAST-PRINCE/CSOC_Hackathon/assets/98230743/fb648410-9266-4e06-b8e3-7ce4bff4a0f9)
